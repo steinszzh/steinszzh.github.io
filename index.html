@@ -1,392 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
- <!--Thanks the contribution of template.com The website is for 2015-16 senior design -->
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Zhihong Zhang — AI-Native Engineer & Data Analyst. Industrial IoT, predictive maintenance, and agentic AI workflows in the hydrogen energy sector. Shanghai, China.">
+    <title>Zhihong Zhang — AI-Native Engineer & Data Analyst</title>
 
-    <title>STeam09- World's Strongest Can</title>
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zhihong Zhang — AI-Native Engineer & Data Analyst">
+    <meta property="og:description" content="Industrial IoT × Machine Learning × Agentic AI workflows. Cut anomaly response time 80% and equipment failure rates 35% in hydrogen energy.">
+    <meta property="og:url" content="https://steinszzh.github.io/">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/animate.css" rel="stylesheet" />
-    <!-- Squad theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css">
 </head>
+<body>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-	<!-- Preloader -->
-	<div id="preloader">
-	  <div id="load"></div>
-	</div>
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
+    <!-- Fixed Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" data-i18n="nav.logo">ZZ.</a>
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+                    <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+                    <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+                    <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+                </div>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text">EN / 中</span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <h1>2015-16 Senior Design Project</h1>
-                </a>
+                <button class="pdf-btn" id="pdfBtn" data-i18n="nav.pdf">
+                    <i class="fas fa-download"></i> Save PDF
+                </button>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About</a></li>
-		<li><a href="#service">Goal</a></li>
-		<li><a href="#contact">Contact</a></li>
-        <li class="dropdown">
-          
-         
-        </li>
-      </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
-	<!-- Section: intro -->
-    <section id="intro" class="intro">
-	
-		<div class="slogan">
-			<h2>WELCOME TO <span class="text_color"> World's strongest Can--Team9</span> </h2>
-			<h4>WE ARE GROUP OF GENTLEMEN MAKING AWESOME Product</h4>
-		</div>
-		<div class="page-scroll">
-			<a href="#service" class="btn btn-circle">
-				<i class="fa fa-angle-double-down animated"></i>
-			</a>
-		</div>
-    </section>
-	<!-- /Section: intro -->
-
-	<!-- Section: about -->
-    <section id="about" class="home-section text-center">
-		<div class="heading-about">
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow bounceInDown" data-wow-delay="0.4s">
-					<div class="section-heading">
-					<h2>About us</h2>
-					<i class="fa fa-2x fa-angle-down"></i>
-
-					</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="container">
-
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.2s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>brandon pott</h5>
-                        <p class="subtitle">Chemical engineering</p>
-                        <div class="avatar"><img src="img/team/1.jpg" alt="" width="269" height="247" class="img-responsive img-circle" /></div>
-                    </div>
+    <!-- Hero Section -->
+    <header class="hero" id="about">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <p class="hero-tagline" data-i18n="hero.tagline">AI-Native Engineer & Data Analyst</p>
+                <h1 class="hero-name" data-i18n="hero.name">Zhihong Zhang</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Building data-driven industrial intelligence with AI</p>
+                <p class="hero-summary" data-i18n="hero.summary">At the intersection of Chemical Engineering, Mathematics, and AI. I ship industrial IoT and predictive-maintenance systems faster by pairing deep domain knowledge with agentic AI workflows (Claude Code, Cursor, multi-agent pipelines). Currently in the hydrogen energy sector.</p>
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text" data-i18n="hero.status">Available for opportunities</span>
                 </div>
-				</div>
+                <p class="hero-location" data-i18n="hero.location">Shanghai, China</p>
             </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.5s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>galen wood</h5>
-                        <p class="subtitle">Chemical engineering</p>
-                        <div class="avatar"><img src="img/team/2.jpg" alt="" width="274" height="277" class="img-responsive img-circle" /></div>
-
-                    </div>
+            <div class="hero-impact">
+                <p class="impact-label" data-i18n="impact.label">Selected Impact</p>
+                <div class="impact-item">
+                    <span class="impact-num">80%</span>
+                    <span class="impact-desc" data-i18n="impact.item1">faster anomaly response — hydrogen station IoT early-warning system</span>
                 </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.8s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Zhihong Zhang</h5>
-                        <p class="subtitle">Chemical engineering</p>
-                        <div class="avatar"><img src="img/team/3.jpg" alt="" width="272" height="216" class="img-responsive img-circle" /></div>
-
-                    </div>
+                <div class="impact-item">
+                    <span class="impact-num">35%</span>
+                    <span class="impact-desc" data-i18n="impact.item2">lower equipment failure rate via predictive maintenance dashboards</span>
                 </div>
-				</div>
-            </div>
-			
-
-                    </div>
+                <div class="impact-item">
+                    <span class="impact-num">2w&rarr;3d</span>
+                    <span class="impact-desc" data-i18n="impact.item3">prototyping cycle, using agentic AI engineering workflows</span>
                 </div>
-				</div>
-            </div>
-        </div>		
-		</div>
-	</section>
-	<!-- /Section: about -->
-	
-
-	<!-- Section: services -->
-    <section id="service" class="home-section text-center bg-gray">
-		
-		<div class="heading-about">
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow bounceInDown" data-wow-delay="0.4s">
-					<div class="section-heading">
-					<h2>Our Goal</h2>
-					<i class="fa fa-2x fa-angle-down"></i>
-
-					</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="container">
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-1.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Recycle</h5>
-						<p>Developed the chemical process to extract pure aluminum from the used beverage can.
-                        To view the detail, please 
-                        <a href="Attachments/Senior_Design_Oral_Presentation_I_Team09.pdf">click here</a>
-              
-                        
-                        </p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Synthesis</h5>
-						<p>develop the synthesise process of the aluminum oxynitride.
-                        
-                        
-                        
-                        </p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-3.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Project documents</h5>
-						<p>This is the lists of documentaries
-                        
-                       </p>
-						<p>To view PPFS<a href="PPFS Rough Draft Submission.pdf"> click here</a>
-                        
-                        </p>
-						<p>To view Final Report <a href="Attachments/Final_Team09.pdf">click here</a>
-                        
-                        </p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-4.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Future</h5>
-						<p>The aluminum oxyntride application.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>		
-		</div>
-	</section>
-	<!-- /Section: services -->
-	
-
-	
-
-	<!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
-		<div class="heading-contact">
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow bounceInDown" data-wow-delay="0.4s">
-					<div class="section-heading">
-					<h2>Get in touch</h2>
-					<i class="fa fa-2x fa-angle-down"></i>
-
-					</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="container">
-
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Subject</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="na" selected="">Choose One:</option>
-                                <option value="service">General question</option>
-                                <option value="suggestions">Suggestions</option>
-                                <option value="product">Product Support</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
-                            Send Message</button>
-                    </div>
-                </div>
-                </form>
             </div>
         </div>
-		
-		<div class="col-lg-4">
-			<div class="widget-contact">
-				<h5>Contact</h5>
-				
-				<address>
-				  <strong><a href="http://www.calvin.edu/engineering">Calvin College Engineering Department</a></strong><br>
-				  3201 Burton ST SE<br>
-				  Grand Rapids, MI 49546<br>
-				  <abbr title="Phone">P:</abbr> (616) 526-6000
-				</address>
+        <div class="hero-scroll-hint">
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
 
-				<address>
-				  <strong>Email</strong><br>
-				  <a href="mailto:#">ENGR@calvin.edu</a>
-				</address>	
-			  <address>
-				  <strong>We're on social networks</strong><br>
-                       	<ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>	
-				</address>
-				<address>
-				<a href="http://www.calvin.edu/academic/engineering/senior-design/"><strong>GO BACK TO SEE OTHER SENIOR DESIGN PROJECT</strong></a>
-                </address>
-				<address>
-                </address>
-				<address>
-                </address>					
-			
-			</div>	
-		</div>
-    </div>	
+    <main>
+        <!-- Philosophy Section -->
+        <section class="philosophy" id="philosophy">
+            <div class="container">
+                <div class="philosophy-quote-wrap">
+                    <span class="quote-mark">&ldquo;</span>
+                    <blockquote class="philosophy-quote" data-i18n="philosophy.quote">
+                        AI doesn't replace engineering judgment — it multiplies it. My job is to bring the domain knowledge, the verification, and the taste.
+                    </blockquote>
+                </div>
+                <div class="philosophy-cards">
+                    <article class="phil-card">
+                        <h3 class="phil-card-title" data-i18n="philosophy.card1.title">AI-Assisted Engineering</h3>
+                        <p class="phil-card-desc" data-i18n="philosophy.card1.desc">Spec-driven development with AI agents: I define intent, constraints, and tests; agents implement; I review and verify every line that ships.</p>
+                    </article>
+                    <article class="phil-card">
+                        <h3 class="phil-card-title" data-i18n="philosophy.card2.title">Multi-Agent</h3>
+                        <p class="phil-card-desc" data-i18n="philosophy.card2.desc">Decompose complex tasks into roles — research, build, review — and orchestrate specialized agents in parallel. Measured result: 2-week prototypes in 3 days.</p>
+                    </article>
+                    <article class="phil-card">
+                        <h3 class="phil-card-title" data-i18n="philosophy.card3.title">Domain &times; AI</h3>
+                        <p class="phil-card-desc" data-i18n="philosophy.card3.desc">Deep chemical engineering knowledge &times; modern AI tools = unique competitive edge for real industrial problems.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-		</div>
-	</section>
-	<!-- /Section: contact -->
+        <!-- Experience Section -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <div class="experience-grid">
+                    <!-- Left Column -->
+                    <div class="experience-main">
+                        <h2 class="section-title" data-i18n="experience.title">Experience</h2>
 
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-lg-12">
-					<div class="wow shake" data-wow-delay="0.4s">
-					<div class="page-scroll marginbot-30">
-						<a href="#intro" id="totop" class="btn btn-circle">
-							<i class="fa fa-angle-double-up animated"></i>
-						</a>
-					</div>
-					</div>
-					<p>&copy;Copyright 2014 - Squad. All rights reserved. <a href="http://bootstraptaste.com">ootstrap Themes</a></p>
-                    <!-- 
-                        All links in the footer should remain intact. 
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Squadfree
-                    -->
-				</div>
-			</div>	
-		</div>
-	</footer>
+                        <div class="timeline">
+                            <!-- Job 1 -->
+                            <article class="job job-highlight" data-job="1">
+                                <div class="job-header">
+                                    <div class="job-meta">
+                                        <h3 class="job-company" data-i18n="job1.company">Sinopec Hydrogen Energy (Shanghai)</h3>
+                                        <span class="job-time" data-i18n="job1.time">2023.01 &mdash; Present</span>
+                                    </div>
+                                    <h4 class="job-role" data-i18n="job1.role">IT Operations & Data Analyst</h4>
+                                </div>
+                                <ul class="job-bullets">
+                                    <li data-i18n="job1.bullet1">Led IoT early warning system for hydrogen stations, achieving real-time cloud data streaming with 80% faster anomaly detection response</li>
+                                    <li data-i18n="job1.bullet2">Spearheaded university collaboration on diaphragm compressor predictive maintenance, integrating ML models with chemical domain knowledge</li>
+                                    <li data-i18n="job1.bullet3">Introduced agentic AI development workflows (multi-agent pipelines, AI pair-programming), compressing prototyping cycles from 2 weeks to 3 days</li>
+                                    <li data-i18n="job1.bullet4">Built real-time dashboards for operations teams, reducing equipment failure rates by 35%</li>
+                                </ul>
+                                <div class="job-tags">
+                                    <span class="tag">IoT</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">Cloud</span>
+                                    <span class="tag">Predictive Maintenance</span>
+                                </div>
+                            </article>
 
-    <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/wow.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
+                            <!-- Job 2 -->
+                            <article class="job" data-job="2">
+                                <div class="job-header">
+                                    <div class="job-meta">
+                                        <h3 class="job-company" data-i18n="job2.company">Yeshiva University</h3>
+                                        <span class="job-time" data-i18n="job2.time">2019.08 &mdash; 2021.01</span>
+                                    </div>
+                                    <h4 class="job-role" data-i18n="job2.role">Data Science Researcher</h4>
+                                </div>
+                                <ul class="job-bullets">
+                                    <li data-i18n="job2.bullet1">Capstone: Optimized CNN speaker recognition model, improving test accuracy by 10%</li>
+                                    <li data-i18n="job2.bullet2">Insurance prediction: Built Sklearn/TensorFlow models, boosting accuracy from 73% to 88%</li>
+                                    <li data-i18n="job2.bullet3">AWS Analytics: Analyzed COVID-19 stock market impact with Tableau visualization</li>
+                                </ul>
+                                <div class="job-tags">
+                                    <span class="tag">CNN</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Tableau</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                            </article>
 
+                            <!-- Job 3 -->
+                            <article class="job" data-job="3">
+                                <div class="job-header">
+                                    <div class="job-meta">
+                                        <h3 class="job-company" data-i18n="job3.company">SHUFE Overseas Exam Center</h3>
+                                        <span class="job-time" data-i18n="job3.time">2017.12 &mdash; 2019.07</span>
+                                    </div>
+                                    <h4 class="job-role" data-i18n="job3.role">Proctor & IT Maintenance</h4>
+                                </div>
+                                <ul class="job-bullets">
+                                    <li data-i18n="job3.bullet1">Managed daily IT equipment maintenance and network administration</li>
+                                    <li data-i18n="job3.bullet2">Ensured stable operation of systems for TOEFL/GRE large-scale exams</li>
+                                </ul>
+                                <div class="job-tags">
+                                    <span class="tag">IT Support</span>
+                                    <span class="tag">Network Admin</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <aside class="experience-sidebar">
+                        <!-- Skills Bars -->
+                        <div class="sidebar-block">
+                            <h3 class="sidebar-title" data-i18n="skills.title">Core Stack</h3>
+                            <div class="skill-stack">
+                                <div class="stack-group">
+                                    <h4 class="stack-label" data-i18n="stack1.label">Engineering &amp; Data</h4>
+                                    <p class="stack-items" data-i18n="stack1.items">Python &middot; SQL &middot; MATLAB &middot; TensorFlow / scikit-learn &middot; Tableau &middot; 6+ yrs data work</p>
+                                </div>
+                                <div class="stack-group">
+                                    <h4 class="stack-label" data-i18n="stack2.label">Industrial &amp; Cloud</h4>
+                                    <p class="stack-items" data-i18n="stack2.items">IoT data pipelines &middot; edge-to-cloud streaming &middot; real-time dashboards &middot; Linux &middot; Docker</p>
+                                </div>
+                                <div class="stack-group">
+                                    <h4 class="stack-label" data-i18n="stack3.label">AI Workflow</h4>
+                                    <p class="stack-items" data-i18n="stack3.items">Claude / Claude Code &middot; Cursor &middot; GitHub Copilot &middot; multi-agent orchestration &middot; production use, daily</p>
+                                </div>
+                                <div class="stack-group">
+                                    <h4 class="stack-label" data-i18n="stack4.label">Languages</h4>
+                                    <p class="stack-items" data-i18n="stack4.items">Mandarin (native) &middot; English (professional, 8 yrs in the US)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="sidebar-block">
+                            <h3 class="sidebar-title" data-i18n="education.title">Education</h3>
+                            <div class="education-list">
+                                <div class="edu-item">
+                                    <h4 class="edu-school" data-i18n="edu1.school">Yeshiva University</h4>
+                                    <p class="edu-degree" data-i18n="edu1.degree">M.S. Data Analytics and Visualization</p>
+                                    <p class="edu-time" data-i18n="edu1.time">2019 &mdash; 2021 | New York, USA</p>
+                                </div>
+                                <div class="edu-item">
+                                    <h4 class="edu-school" data-i18n="edu2.school">Calvin University</h4>
+                                    <p class="edu-degree" data-i18n="edu2.degree">B.S. Mathematics (Minors: Engineering/Chemistry)</p>
+                                    <p class="edu-time" data-i18n="edu2.time">2012 &mdash; 2017 | Michigan, USA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <div class="sidebar-block">
+                            <div class="status-badge">
+                                <span class="status-badge-dot"></span>
+                                <span class="status-badge-text" data-i18n="hero.status">Available for opportunities</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-card-inner">
+                            <span class="project-category" data-i18n="project1.category">Industrial IoT</span>
+                            <h3 class="project-name" data-i18n="project1.name">H2 Station Cloud Warning System</h3>
+                            <p class="project-desc" data-i18n="project1.desc">Built end-to-end data pipeline from edge sensors to cloud with real-time dashboard. Leveraged multi-agent architecture for data collection, cleaning, analysis, and alerting.</p>
+                            <span class="project-highlight" data-i18n="project1.highlight">Anomaly response &darr; 80%</span>
+                            <div class="project-tags">
+                                <span class="tag tag-small">IoT</span>
+                                <span class="tag tag-small">Cloud</span>
+                                <span class="tag tag-small">Python</span>
+                                <span class="tag tag-small">Real-time Dashboard</span>
+                            </div>
+                            <p class="project-note" data-i18n="project1.note">Proprietary system &mdash; architecture walkthrough available in interview</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-card-inner">
+                            <span class="project-category" data-i18n="project2.category">ML &times; Chemical Engineering</span>
+                            <h3 class="project-name" data-i18n="project2.name">Compressor Predictive Maintenance</h3>
+                            <p class="project-desc" data-i18n="project2.desc">Fused TensorFlow predictive models with chemical domain knowledge. Accelerated model iteration through multi-agent collaboration, significantly reducing unplanned downtime.</p>
+                            <span class="project-highlight" data-i18n="project2.highlight">Failure rate &darr; 35%</span>
+                            <div class="project-tags">
+                                <span class="tag tag-small">TensorFlow</span>
+                                <span class="tag tag-small">Predictive ML</span>
+                                <span class="tag tag-small">Domain Knowledge</span>
+                            </div>
+                            <p class="project-note" data-i18n="project2.note">Joint research with university partner &mdash; methodology available in interview</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-card-inner">
+                            <span class="project-category" data-i18n="project3.category">Open Source / Agentic Build</span>
+                            <h3 class="project-name" data-i18n="project3.name">This Site &mdash; Agentic Build Pipeline</h3>
+                            <p class="project-desc" data-i18n="project3.desc">This page is itself a work sample: spec'd, designed, and built with a multi-agent pipeline (planner &rarr; designer &rarr; content &rarr; review), then human-verified and deployed to GitHub Pages. The repo shows the full workflow.</p>
+                            <span class="project-highlight" data-i18n="project3.highlight">Built with AI Agents</span>
+                            <div class="project-tags">
+                                <span class="tag tag-small">Multi-Agent</span>
+                                <span class="tag tag-small">Claude Code</span>
+                                <span class="tag tag-small">GitHub Pages</span>
+                            </div>
+                            <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> <span data-i18n="project3.link">View source &amp; build log</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <div class="skills-grid">
+                    <div class="skills-left">
+                        <h2 class="section-title" data-i18n="skills.fullTitle">Skills</h2>
+                        <div class="skills-radar-wrap">
+                            <canvas id="skillsRadarChart" width="420" height="420"></canvas>
+                        </div>
+                    </div>
+                    <div class="skills-right">
+                        <div class="skill-tag-group">
+                            <h4 class="skill-tag-label" data-i18n="tags.primaryLabel">Primary</h4>
+                            <div class="skill-tags-primary">
+                                <span class="tag tag-blue">Python</span>
+                                <span class="tag tag-blue">TensorFlow</span>
+                                <span class="tag tag-blue">SQL</span>
+                                <span class="tag tag-blue">IoT</span>
+                                <span class="tag tag-blue">Cloud</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag-group">
+                            <h4 class="skill-tag-label" data-i18n="tags.secondaryLabel">Secondary</h4>
+                            <div class="skill-tags-secondary">
+                                <span class="tag tag-gray">Git</span>
+                                <span class="tag tag-gray">Linux</span>
+                                <span class="tag tag-gray">Tableau</span>
+                                <span class="tag tag-gray">Docker</span>
+                                <span class="tag tag-gray">PID Control</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag-group">
+                            <h4 class="skill-tag-label" data-i18n="tags.aiLabel">AI Tools</h4>
+                            <div class="skill-tags-ai">
+                                <span class="tag tag-violet">ChatGPT</span>
+                                <span class="tag tag-violet">Claude</span>
+                                <span class="tag tag-violet">Cursor</span>
+                                <span class="tag tag-violet">GitHub Copilot</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <h2 class="footer-headline" data-i18n="footer.headline">Let's build the future.</h2>
+            <p class="footer-subtext" data-i18n="footer.subtext">If you're looking for an engineer who understands chemicals, data, and AI collaboration &mdash; let's talk.</p>
+            <div class="footer-contact">
+                <a href="mailto:goodzzh222@hotmail.com" class="footer-email">goodzzh222@hotmail.com</a>
+                <div class="footer-links">
+                    <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="footer-copyright" data-i18n="footer.copyright">2026 Zhihong Zhang &middot; Designed and verified by a human, accelerated by AI agents.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./main.js"></script>
 </body>
-
 </html>
