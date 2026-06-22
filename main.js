@@ -60,7 +60,7 @@ const i18n = {
         'job2.bullet3': 'AWS Analytics: Analyzed COVID-19 stock market impact with Tableau visualization',
 
         // Job 3
-        'job3.company': 'SHUFE Overseas Exam Center',
+        'job3.company': 'SUFE Overseas Exam Center',
         'job3.time': '2017.12 — 2019.07',
         'job3.role': 'Proctor & IT Maintenance',
         'job3.bullet1': 'Managed daily IT equipment maintenance and network administration',
@@ -238,7 +238,7 @@ const radarData = [95, 85, 90, 80, 78, 92];
 // State
 // ============================================
 
-let currentLang = 'en';
+let currentLang = 'zh';
 let heroChart = null;
 let skillsChart = null;
 
@@ -255,6 +255,22 @@ document.addEventListener('DOMContentLoaded', () => {
     initPdfButton();
     initMobileMenu();
     initCharts();
+
+    // Default to Chinese — set content directly without fade animation
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n['zh'][key]) {
+            el.innerHTML = i18n['zh'][key];
+        }
+    });
+    document.documentElement.lang = 'zh';
+    document.title = `${i18n['zh']['hero.name']} — AI-Native Engineer & Data Analyst`;
+    updateRadarChart('zh');
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) langText.textContent = '中 / EN';
+    }
 });
 
 // ============================================
