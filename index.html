@@ -1,251 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zhihong Zhang — AI-Native Engineer & Data Analyst. Industrial IoT, predictive maintenance, and agentic AI workflows in the hydrogen energy sector. Shanghai, China.">
-    <title>Zhihong Zhang — AI-Native Engineer & Data Analyst</title>
+    <meta name="description" content="ZHIHONG ZHANG — Industrial Data & AI Engineer. IoT pipelines · predictive maintenance · edge-to-cloud systems. Follow the white rabbit.">
+    <title>ZZ://matrix — 工业数据 × AI</title>
 
-    <!-- Open Graph / Social Sharing -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Zhihong Zhang — AI-Native Engineer & Data Analyst">
-    <meta property="og:description" content="Industrial IoT × Machine Learning × Agentic AI workflows. Cut anomaly response time 80% and equipment failure rates 35% in hydrogen energy.">
-    <meta property="og:url" content="https://steinszzh.github.io/">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <meta property="og:title" content="ZHIHONG ZHANG — Industrial Data & AI Engineer">
+    <meta property="og:description" content="Industrial IoT × Machine Learning × Agentic AI workflows. Anomaly response ↓80%, failure rate ↓35%.">
+    <meta property="og:url" content="https://steinszzh.github.io/matrix-edition/">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <!-- Reading Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
+    <!-- ═══ MATRIX RAIN CANVAS ═══ -->
+    <canvas id="rainCanvas" aria-hidden="true"></canvas>
 
-    <!-- Fixed Navigation -->
+    <!-- ═══ CRT OVERLAY ═══ -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="crt-vignette" aria-hidden="true"></div>
+
+    <!-- ═══ BOOT SEQUENCE ═══ -->
+    <div class="boot" id="boot">
+        <div class="boot-window">
+            <div class="term-titlebar">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="title">root@neo:~</span>
+            </div>
+            <div class="boot-log" id="bootLog"></div>
+        </div>
+    </div>
+
+    <!-- ═══ NAVIGATION ═══ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#" class="nav-logo" data-i18n="nav.logo">ZZ.</a>
+            <a href="#top" class="nav-logo">zz<span class="cursor-blink">_</span></a>
             <div class="nav-right">
                 <div class="nav-links" id="navLinks">
-                    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
-                    <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
-                    <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
-                    <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
-                    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+                    <a href="#about" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.about">关于</span></a>
+                    <a href="#experience" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.experience">经历</span></a>
+                    <a href="#projects" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.projects">项目</span></a>
+                    <a href="#skills" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.skills">技能</span></a>
+                    <a href="#contact" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.contact">联系</span></a>
                 </div>
                 <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-                    <span class="lang-text">EN / 中</span>
+                    <span class="lang-text">中 / EN</span>
                 </button>
-                <button class="pdf-btn" id="pdfBtn" data-i18n="nav.pdf">
-                    <i class="fas fa-download"></i> Save PDF
+                <button class="pdf-btn" id="pdfBtn">
+                    <i class="fas fa-download"></i> <span data-i18n="nav.pdf">PDF</span>
                 </button>
                 <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero" id="about">
+    <!-- ═══ HERO ═══ -->
+    <header class="hero" id="top">
         <div class="hero-inner">
-            <div class="hero-content">
-                <p class="hero-tagline" data-i18n="hero.tagline">AI-Native Engineer & Data Analyst</p>
-                <h1 class="hero-name" data-i18n="hero.name">Zhihong Zhang</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Building data-driven industrial intelligence with AI</p>
-                <p class="hero-summary" data-i18n="hero.summary">At the intersection of Chemical Engineering, Mathematics, and AI. I ship industrial IoT and predictive-maintenance systems faster by pairing deep domain knowledge with agentic AI workflows (Claude Code, Cursor, multi-agent pipelines). Currently in the hydrogen energy sector.</p>
-                <div class="hero-status">
-                    <span class="status-dot"></span>
-                    <span class="status-text" data-i18n="hero.status">Available for opportunities</span>
+            <div class="hero-left">
+                <p class="hero-breadcrumb" id="heroBreadcrumb">~$ whoami</p>
+                <h1 class="hero-name">
+                    <span class="glitch" id="heroName" data-text="张志鸿" data-i18n="hero.name">张志鸿</span>
+                </h1>
+                <p class="hero-tagline" data-i18n="hero.tagline">工业数据与 AI 工程师</p>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">IoT 数据管道 · 预测性维护 · 制造场景边缘到云系统</p>
+
+                <div class="hero-terminal">
+                    <div class="term-titlebar">
+                        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                        <span class="title" id="heroTermTitle">~ zz@matrix</span>
+                    </div>
+                    <div class="term-body" id="heroTermBody">
+                        <div class="term-line"><span class="ps1">zz@matrix:~$</span> <span class="typed" id="typedLine"></span><span class="cursor-blink">█</span></div>
+                    </div>
                 </div>
-                <p class="hero-location" data-i18n="hero.location">Shanghai, China</p>
+
+                <div class="hero-meta">
+                    <div class="status-chip">
+                        <span class="status-dot"></span>
+                        <span class="status-text" data-i18n="hero.status">● 求职中 / OPEN TO WORK</span>
+                    </div>
+                    <p class="hero-location"><i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.location">中国 · 上海</span></p>
+                </div>
             </div>
-            <div class="hero-impact">
-                <p class="impact-label" data-i18n="impact.label">Selected Impact</p>
-                <div class="impact-item">
-                    <span class="impact-num">80%</span>
-                    <span class="impact-desc" data-i18n="impact.item1">faster anomaly response — hydrogen station IoT early-warning system</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-num">35%</span>
-                    <span class="impact-desc" data-i18n="impact.item2">lower equipment failure rate via predictive maintenance dashboards</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-num">2w&rarr;3d</span>
-                    <span class="impact-desc" data-i18n="impact.item3">prototyping cycle, using agentic AI engineering workflows</span>
+
+            <div class="hero-right">
+                <div class="stat-panel">
+                    <p class="stat-label" data-i18n="impact.label">关键成果</p>
+                    <div class="stat-item">
+                        <span class="stat-num">80%</span>
+                        <span class="stat-desc" data-i18n="impact.item1">异常响应提速 — 加氢站 IoT 预警系统</span>
+                        <div class="stat-bar"><span style="width:80%"></span></div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">35%</span>
+                        <span class="stat-desc" data-i18n="impact.item2">设备故障率下降 — 预测性维护看板</span>
+                        <div class="stat-bar"><span style="width:35%"></span></div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">2w→3d</span>
+                        <span class="stat-desc" data-i18n="impact.item3">原型周期压缩 — AI 智能体工程工作流</span>
+                        <div class="stat-bar"><span style="width:92%"></span></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="hero-scroll-hint">
-            <div class="scroll-arrow"></div>
+            <span class="scroll-text">↓ scroll</span>
+            <div class="scroll-line"><span></span></div>
         </div>
     </header>
 
     <main>
-        <!-- Philosophy Section -->
-        <section class="philosophy" id="philosophy">
+        <!-- ═══ PHILOSOPHY ═══ -->
+        <section class="philosophy" id="about">
             <div class="container">
+                <h2 class="section-title">
+                    <span class="section-hash"># 01</span> <span class="section-label" data-i18n="philosophy.title">核心信念</span>
+                </h2>
                 <div class="philosophy-quote-wrap">
-                    <span class="quote-mark">&ldquo;</span>
-                    <blockquote class="philosophy-quote" data-i18n="philosophy.quote">
-                        AI doesn't replace engineering judgment — it multiplies it. My job is to bring the domain knowledge, the verification, and the taste.
-                    </blockquote>
+                    <span class="quote-symbol">&gt;_</span>
+                    <blockquote class="philosophy-quote" data-i18n="philosophy.quote">AI 不是替代工程判断，而是放大它。我的价值在于提供领域知识、验证把关和品味。</blockquote>
                 </div>
                 <div class="philosophy-cards">
                     <article class="phil-card">
-                        <h3 class="phil-card-title" data-i18n="philosophy.card1.title">AI-Assisted Engineering</h3>
-                        <p class="phil-card-desc" data-i18n="philosophy.card1.desc">Spec-driven development with AI agents: I define intent, constraints, and tests; agents implement; I review and verify every line that ships.</p>
+                        <div class="phil-card-head">
+                            <span class="phil-icon"><i class="fas fa-terminal"></i></span>
+                            <h3 class="phil-card-title" data-i18n="philosophy.card1.title">AI 辅助工程</h3>
+                        </div>
+                        <p class="phil-card-desc" data-i18n="philosophy.card1.desc">规格驱动的 AI 开发：我定义意图、约束与测试，由 Agent 实现，每一行上线代码经我审查验证。</p>
                     </article>
                     <article class="phil-card">
-                        <h3 class="phil-card-title" data-i18n="philosophy.card2.title">Multi-Agent</h3>
-                        <p class="phil-card-desc" data-i18n="philosophy.card2.desc">Decompose complex tasks into roles — research, build, review — and orchestrate specialized agents in parallel. Measured result: 2-week prototypes in 3 days.</p>
+                        <div class="phil-card-head">
+                            <span class="phil-icon"><i class="fas fa-project-diagram"></i></span>
+                            <h3 class="phil-card-title" data-i18n="philosophy.card2.title">多智能体</h3>
+                        </div>
+                        <p class="phil-card-desc" data-i18n="philosophy.card2.desc">将复杂任务拆解为研究、构建、评审等角色，并行编排专业 Agent。实测：2 周原型压缩到 3 天。</p>
                     </article>
                     <article class="phil-card">
-                        <h3 class="phil-card-title" data-i18n="philosophy.card3.title">Domain &times; AI</h3>
-                        <p class="phil-card-desc" data-i18n="philosophy.card3.desc">Deep chemical engineering knowledge &times; modern AI tools = unique competitive edge for real industrial problems.</p>
+                        <div class="phil-card-head">
+                            <span class="phil-icon"><i class="fas fa-atom"></i></span>
+                            <h3 class="phil-card-title" data-i18n="philosophy.card3.title">领域 × AI</h3>
+                        </div>
+                        <p class="phil-card-desc" data-i18n="philosophy.card3.desc">化工领域的深度知识 × 现代 AI 工具 = 解决真实工业问题的独特竞争力。</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- ═══ EXPERIENCE ═══ -->
         <section class="experience" id="experience">
             <div class="container">
                 <div class="experience-grid">
-                    <!-- Left Column -->
                     <div class="experience-main">
-                        <h2 class="section-title" data-i18n="experience.title">Experience</h2>
+                        <h2 class="section-title">
+                            <span class="section-hash"># 02</span> <span class="section-label" data-i18n="experience.title">工作经历</span>
+                        </h2>
 
                         <div class="timeline">
-                            <!-- Job 1 -->
-                            <article class="job job-highlight" data-job="1">
+                            <article class="job job-highlight">
+                                <div class="job-log">
+                                    <span class="log-time">[2023.01 — 2026.06]</span>
+                                    <span class="log-level">RUN</span>
+                                </div>
                                 <div class="job-header">
-                                    <div class="job-meta">
-                                        <h3 class="job-company" data-i18n="job1.company">Sinopec Hydrogen Energy (Shanghai)</h3>
-                                        <span class="job-time" data-i18n="job1.time">2023.01 &mdash; Present</span>
-                                    </div>
-                                    <h4 class="job-role" data-i18n="job1.role">IT Operations & Data Analyst</h4>
+                                    <h3 class="job-company" data-i18n="job1.company">中石化氢能源（上海）</h3>
+                                    <h4 class="job-role" data-i18n="job1.role">IT运维工程师 & 数据分析师</h4>
                                 </div>
                                 <ul class="job-bullets">
-                                    <li data-i18n="job1.bullet1">Led IoT early warning system for hydrogen stations, achieving real-time cloud data streaming with 80% faster anomaly detection response</li>
-                                    <li data-i18n="job1.bullet2">Spearheaded university collaboration on diaphragm compressor predictive maintenance, integrating ML models with chemical domain knowledge</li>
-                                    <li data-i18n="job1.bullet3">Introduced agentic AI development workflows (multi-agent pipelines, AI pair-programming), compressing prototyping cycles from 2 weeks to 3 days</li>
-                                    <li data-i18n="job1.bullet4">Built real-time dashboards for operations teams, reducing equipment failure rates by 35%</li>
+                                    <li data-i18n="job1.bullet1">搭建边缘传感器数据平台，实现制造业 IoT 预警数据实时上云，异常检测响应时间缩短 80%</li>
+                                    <li data-i18n="job1.bullet2">作为技术负责人与高校联合研发隔膜压缩机预测性维护系统，融合 ML 模型与化工领域知识</li>
+                                    <li data-i18n="job1.bullet3">引入 AI 智能体开发工作流（多 Agent 流水线 + AI 结对编程），将原型开发周期从 2 周压缩至 3 天</li>
+                                    <li data-i18n="job1.bullet4">搭建数据可视化看板，为运营团队提供实时决策支持，设备故障率降低 35%</li>
                                 </ul>
                                 <div class="job-tags">
-                                    <span class="tag">IoT</span>
-                                    <span class="tag">Python</span>
-                                    <span class="tag">TensorFlow</span>
-                                    <span class="tag">Cloud</span>
-                                    <span class="tag">Predictive Maintenance</span>
+                                    <span class="tag">IoT</span><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Cloud</span><span class="tag">预测性维护</span>
                                 </div>
                             </article>
 
-                            <!-- Job 2 -->
-                            <article class="job" data-job="2">
+                            <article class="job">
+                                <div class="job-log">
+                                    <span class="log-time">[2019.08 — 2021.01]</span>
+                                    <span class="log-level">RUN</span>
+                                </div>
                                 <div class="job-header">
-                                    <div class="job-meta">
-                                        <h3 class="job-company" data-i18n="job2.company">Yeshiva University</h3>
-                                        <span class="job-time" data-i18n="job2.time">2019.08 &mdash; 2021.01</span>
-                                    </div>
-                                    <h4 class="job-role" data-i18n="job2.role">Data Science Researcher</h4>
+                                    <h3 class="job-company" data-i18n="job2.company">耶希瓦大学</h3>
+                                    <h4 class="job-role" data-i18n="job2.role">数据科学项目研究员</h4>
                                 </div>
                                 <ul class="job-bullets">
-                                    <li data-i18n="job2.bullet1">Capstone: Optimized CNN speaker recognition model, improving test accuracy by 10%</li>
-                                    <li data-i18n="job2.bullet2">Insurance prediction: Built Sklearn/TensorFlow models, boosting accuracy from 73% to 88%</li>
-                                    <li data-i18n="job2.bullet3">AWS Analytics: Analyzed COVID-19 stock market impact with Tableau visualization</li>
+                                    <li data-i18n="job2.bullet1">Capstone 项目：优化 CNN 语音识别模型，测试集准确率提升 10%</li>
+                                    <li data-i18n="job2.bullet2">保险预测项目：使用 Sklearn/TensorFlow 构建预测模型，准确率从 73% 提升至 88%</li>
+                                    <li data-i18n="job2.bullet3">AWS 数据分析：分析 COVID-19 对股市影响，Tableau 可视化展示</li>
                                 </ul>
                                 <div class="job-tags">
-                                    <span class="tag">CNN</span>
-                                    <span class="tag">TensorFlow</span>
-                                    <span class="tag">AWS</span>
-                                    <span class="tag">Tableau</span>
-                                    <span class="tag">Python</span>
+                                    <span class="tag">CNN</span><span class="tag">TensorFlow</span><span class="tag">AWS</span><span class="tag">Tableau</span><span class="tag">Python</span>
                                 </div>
                             </article>
 
-                            <!-- Job 3 -->
-                            <article class="job" data-job="3">
+                            <article class="job">
+                                <div class="job-log">
+                                    <span class="log-time">[2017.12 — 2019.07]</span>
+                                    <span class="log-level">RUN</span>
+                                </div>
                                 <div class="job-header">
-                                    <div class="job-meta">
-                                        <h3 class="job-company" data-i18n="job3.company">SUFE Overseas Exam Center</h3>
-                                        <span class="job-time" data-i18n="job3.time">2017.12 &mdash; 2019.07</span>
-                                    </div>
-                                    <h4 class="job-role" data-i18n="job3.role">Proctor & IT Maintenance</h4>
+                                    <h3 class="job-company" data-i18n="job3.company">上海财经大学海外考试中心</h3>
+                                    <h4 class="job-role" data-i18n="job3.role">监考及机房维护</h4>
                                 </div>
                                 <ul class="job-bullets">
-                                    <li data-i18n="job3.bullet1">Managed daily IT equipment maintenance and network administration</li>
-                                    <li data-i18n="job3.bullet2">Ensured stable operation of systems for TOEFL/GRE large-scale exams</li>
+                                    <li data-i18n="job3.bullet1">负责考试中心 IT 设备日常维护与网络管理</li>
+                                    <li data-i18n="job3.bullet2">保障托福/GRE 等大型考试系统稳定运行</li>
                                 </ul>
                                 <div class="job-tags">
-                                    <span class="tag">IT Support</span>
-                                    <span class="tag">Network Admin</span>
+                                    <span class="tag">IT支持</span><span class="tag">网络管理</span>
                                 </div>
                             </article>
                         </div>
                     </div>
 
-                    <!-- Right Column -->
                     <aside class="experience-sidebar">
-                        <!-- Skills Bars -->
                         <div class="sidebar-block">
-                            <h3 class="sidebar-title" data-i18n="skills.title">Core Stack</h3>
+                            <h3 class="sidebar-title" data-i18n="skills.title">核心技能栈</h3>
                             <div class="skill-stack">
                                 <div class="stack-group">
-                                    <h4 class="stack-label" data-i18n="stack1.label">Engineering &amp; Data</h4>
-                                    <p class="stack-items" data-i18n="stack1.items">Python &middot; SQL &middot; MATLAB &middot; TensorFlow / scikit-learn &middot; Tableau &middot; 6+ yrs data work</p>
+                                    <h4 class="stack-label" data-i18n="stack1.label">工程与数据</h4>
+                                    <p class="stack-items" data-i18n="stack1.items">Python · SQL · MATLAB · TensorFlow / scikit-learn · Tableau（2019 至今）</p>
                                 </div>
                                 <div class="stack-group">
-                                    <h4 class="stack-label" data-i18n="stack2.label">Industrial &amp; Cloud</h4>
-                                    <p class="stack-items" data-i18n="stack2.items">IoT data pipelines &middot; edge-to-cloud streaming &middot; real-time dashboards &middot; Linux &middot; Docker</p>
+                                    <h4 class="stack-label" data-i18n="stack2.label">工业与云端</h4>
+                                    <p class="stack-items" data-i18n="stack2.items">IoT 数据管道 · 边缘到云实时传输 · 实时看板 · Linux · Docker</p>
                                 </div>
                                 <div class="stack-group">
-                                    <h4 class="stack-label" data-i18n="stack3.label">AI Workflow</h4>
-                                    <p class="stack-items" data-i18n="stack3.items">Claude / Claude Code &middot; Cursor &middot; GitHub Copilot &middot; multi-agent orchestration &middot; production use, daily</p>
+                                    <h4 class="stack-label" data-i18n="stack3.label">AI 工作流</h4>
+                                    <p class="stack-items" data-i18n="stack3.items">Claude / Claude Code · Cursor · GitHub Copilot · 多 Agent 编排 · 生产环境日常使用</p>
                                 </div>
                                 <div class="stack-group">
-                                    <h4 class="stack-label" data-i18n="stack4.label">Languages</h4>
-                                    <p class="stack-items" data-i18n="stack4.items">Mandarin (native) &middot; English (professional, 8 yrs in the US)</p>
+                                    <h4 class="stack-label" data-i18n="stack4.label">语言能力</h4>
+                                    <p class="stack-items" data-i18n="stack4.items">中文（母语）· 英文（专业级，旅美 8 年）</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Education -->
                         <div class="sidebar-block">
-                            <h3 class="sidebar-title" data-i18n="education.title">Education</h3>
+                            <h3 class="sidebar-title" data-i18n="education.title">教育背景</h3>
                             <div class="education-list">
                                 <div class="edu-item">
-                                    <h4 class="edu-school" data-i18n="edu1.school">Yeshiva University</h4>
-                                    <p class="edu-degree" data-i18n="edu1.degree">M.S. Data Analytics and Visualization</p>
-                                    <p class="edu-time" data-i18n="edu1.time">2019 &mdash; 2021 | New York, USA</p>
+                                    <span class="edu-marker">▸</span>
+                                    <div>
+                                        <h4 class="edu-school" data-i18n="edu1.school">耶希瓦大学</h4>
+                                        <p class="edu-degree" data-i18n="edu1.degree">理学硕士，数据分析与可视化</p>
+                                        <p class="edu-time" data-i18n="edu1.time">2019 — 2021 | 纽约</p>
+                                    </div>
                                 </div>
                                 <div class="edu-item">
-                                    <h4 class="edu-school" data-i18n="edu2.school">Calvin University</h4>
-                                    <p class="edu-degree" data-i18n="edu2.degree">B.S. Mathematics (Minors: Engineering/Chemistry)</p>
-                                    <p class="edu-time" data-i18n="edu2.time">2012 &mdash; 2017 | Michigan, USA</p>
+                                    <span class="edu-marker">▸</span>
+                                    <div>
+                                        <h4 class="edu-school" data-i18n="edu2.school">加尔文大学</h4>
+                                        <p class="edu-degree" data-i18n="edu2.degree">理学学士，数学（辅修工程/化学）</p>
+                                        <p class="edu-time" data-i18n="edu2.time">2012 — 2017 | 密歇根</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Status Badge -->
                         <div class="sidebar-block">
                             <div class="status-badge">
                                 <span class="status-badge-dot"></span>
-                                <span class="status-badge-text" data-i18n="hero.status">Available for opportunities</span>
+                                <span class="status-badge-text" data-i18n="hero.status">● 求职中 / OPEN TO WORK</span>
                             </div>
                         </div>
                     </aside>
@@ -253,102 +289,88 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- ═══ PROJECTS ═══ -->
         <section class="projects" id="projects">
             <div class="container">
-                <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
+                <h2 class="section-title">
+                    <span class="section-hash"># 03</span> <span class="section-label" data-i18n="projects.title">精选项目</span>
+                </h2>
                 <div class="projects-grid">
-                    <!-- Project 1 -->
                     <article class="project-card">
-                        <div class="project-card-inner">
-                            <span class="project-category" data-i18n="project1.category">Industrial IoT</span>
-                            <h3 class="project-name" data-i18n="project1.name">H2 Station Cloud Warning System</h3>
-                            <p class="project-desc" data-i18n="project1.desc">Built end-to-end data pipeline from edge sensors to cloud with real-time dashboard. Leveraged multi-agent architecture for data collection, cleaning, analysis, and alerting.</p>
-                            <span class="project-highlight" data-i18n="project1.highlight">Anomaly response &darr; 80%</span>
-                            <div class="project-tags">
-                                <span class="tag tag-small">IoT</span>
-                                <span class="tag tag-small">Cloud</span>
-                                <span class="tag tag-small">Python</span>
-                                <span class="tag tag-small">Real-time Dashboard</span>
-                            </div>
-                            <p class="project-note" data-i18n="project1.note">Proprietary system &mdash; architecture walkthrough available in interview</p>
+                        <div class="project-head">
+                            <span class="project-folder"><i class="fas fa-folder-open"></i></span>
+                            <span class="project-category" data-i18n="project1.category">工业物联网</span>
                         </div>
+                        <h3 class="project-name" data-i18n="project1.name">加氢站云端预警系统</h3>
+                        <p class="project-desc" data-i18n="project1.desc">搭建从边缘传感器到云端的全链路数据管道，开发实时可视化看板。利用多 Agent 架构分别负责数据采集、清洗、分析和告警，大幅提升开发效率。</p>
+                        <span class="project-highlight" data-i18n="project1.highlight">$> 异常响应 ↓ 80%</span>
+                        <div class="project-tags">
+                            <span class="tag tag-small">IoT</span><span class="tag tag-small">Cloud</span><span class="tag tag-small">Python</span><span class="tag tag-small">实时看板</span>
+                        </div>
+                        <p class="project-note" data-i18n="project1.note">// 企业内部系统 — 可在面试中讲解架构</p>
                     </article>
 
-                    <!-- Project 2 -->
                     <article class="project-card">
-                        <div class="project-card-inner">
-                            <span class="project-category" data-i18n="project2.category">ML &times; Chemical Engineering</span>
-                            <h3 class="project-name" data-i18n="project2.name">Compressor Predictive Maintenance</h3>
-                            <p class="project-desc" data-i18n="project2.desc">Fused TensorFlow predictive models with chemical domain knowledge. Accelerated model iteration through multi-agent collaboration, significantly reducing unplanned downtime.</p>
-                            <span class="project-highlight" data-i18n="project2.highlight">Failure rate &darr; 35%</span>
-                            <div class="project-tags">
-                                <span class="tag tag-small">TensorFlow</span>
-                                <span class="tag tag-small">Predictive ML</span>
-                                <span class="tag tag-small">Domain Knowledge</span>
-                            </div>
-                            <p class="project-note" data-i18n="project2.note">Joint research with university partner &mdash; methodology available in interview</p>
+                        <div class="project-head">
+                            <span class="project-folder"><i class="fas fa-folder-open"></i></span>
+                            <span class="project-category" data-i18n="project2.category">机器学习 × 化工</span>
                         </div>
+                        <h3 class="project-name" data-i18n="project2.name">压缩机预测性维护</h3>
+                        <p class="project-desc" data-i18n="project2.desc">将 TensorFlow 预测模型与化工领域知识融合，构建隔膜压缩机故障预测系统。通过多 Agent 协作快速迭代模型，显著减少非计划停机。</p>
+                        <span class="project-highlight" data-i18n="project2.highlight">$> 故障率 ↓ 35%</span>
+                        <div class="project-tags">
+                            <span class="tag tag-small">TensorFlow</span><span class="tag tag-small">预测ML</span><span class="tag tag-small">领域知识</span>
+                        </div>
+                        <p class="project-note" data-i18n="project2.note">// 与高校联合研究 — 可在面试中讲解方法论</p>
                     </article>
 
-                    <!-- Project 3 -->
                     <article class="project-card">
-                        <div class="project-card-inner">
-                            <span class="project-category" data-i18n="project3.category">Open Source / Agentic Build</span>
-                            <h3 class="project-name" data-i18n="project3.name">This Site &mdash; Agentic Build Pipeline</h3>
-                            <p class="project-desc" data-i18n="project3.desc">This page is itself a work sample: spec'd, designed, and built with a multi-agent pipeline (planner &rarr; designer &rarr; content &rarr; review), then human-verified and deployed to GitHub Pages. The repo shows the full workflow.</p>
-                            <span class="project-highlight" data-i18n="project3.highlight">Built with AI Agents</span>
-                            <div class="project-tags">
-                                <span class="tag tag-small">Multi-Agent</span>
-                                <span class="tag tag-small">Claude Code</span>
-                                <span class="tag tag-small">GitHub Pages</span>
-                            </div>
-                            <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> <span data-i18n="project3.link">View source &amp; build log</span></a>
+                        <div class="project-head">
+                            <span class="project-folder"><i class="fas fa-folder-open"></i></span>
+                            <span class="project-category" data-i18n="project3.category">开源 / Agent 构建</span>
                         </div>
+                        <h3 class="project-name" data-i18n="project3.name">本站 — Matrix 演绎版</h3>
+                        <p class="project-desc" data-i18n="project3.desc">这个页面本身就是工作样本：由多 Agent 流水线（规划 → 设计 → 内容 → 评审）完成规格设计与构建，Matrix 风格独立演绎，经人工验证后部署。仓库即工作流的证明。</p>
+                        <span class="project-highlight" data-i18n="project3.highlight">$> 由 AI Agent 构建</span>
+                        <div class="project-tags">
+                            <span class="tag tag-small">多智能体</span><span class="tag tag-small">Claude Code</span><span class="tag tag-small">GitHub Pages</span>
+                        </div>
+                        <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> <span data-i18n="project3.link">查看源码与构建记录</span></a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- ═══ SKILLS ═══ -->
         <section class="skills" id="skills">
             <div class="container">
-                <div class="skills-grid">
-                    <div class="skills-left">
-                        <h2 class="section-title" data-i18n="skills.fullTitle">Skills</h2>
-                        <div class="skills-radar-wrap">
-                            <canvas id="skillsRadarChart" width="420" height="420"></canvas>
+                <h2 class="section-title">
+                    <span class="section-hash"># 04</span> <span class="section-label" data-i18n="skills.fullTitle">技能栈</span>
+                </h2>
+                <div class="skill-cards-grid">
+                    <div class="skill-card">
+                        <h4 class="skill-card-label"><i class="fas fa-database"></i> <span data-i18n="skillcard1.label">数据 & 机器学习</span></h4>
+                        <div class="skill-card-tags">
+                            <span class="tag tag-green">Python</span><span class="tag tag-green">SQL</span><span class="tag tag-green">TensorFlow</span><span class="tag tag-green">scikit-learn</span><span class="tag tag-green">Tableau</span><span class="tag tag-green">MATLAB</span>
                         </div>
                     </div>
-                    <div class="skills-right">
-                        <div class="skill-tag-group">
-                            <h4 class="skill-tag-label" data-i18n="tags.primaryLabel">Primary</h4>
-                            <div class="skill-tags-primary">
-                                <span class="tag tag-blue">Python</span>
-                                <span class="tag tag-blue">TensorFlow</span>
-                                <span class="tag tag-blue">SQL</span>
-                                <span class="tag tag-blue">IoT</span>
-                                <span class="tag tag-blue">Cloud</span>
-                            </div>
+                    <div class="skill-card">
+                        <h4 class="skill-card-label"><i class="fas fa-industry"></i> <span data-i18n="skillcard2.label">工业系统</span></h4>
+                        <div class="skill-card-tags">
+                            <span class="tag tag-cyan">IoT 数据管道</span><span class="tag tag-cyan">边缘到云</span><span class="tag tag-cyan">实时看板</span><span class="tag tag-cyan">预测性维护</span><span class="tag tag-cyan">Linux</span><span class="tag tag-cyan">Docker</span>
                         </div>
-                        <div class="skill-tag-group">
-                            <h4 class="skill-tag-label" data-i18n="tags.secondaryLabel">Secondary</h4>
-                            <div class="skill-tags-secondary">
-                                <span class="tag tag-gray">Git</span>
-                                <span class="tag tag-gray">Linux</span>
-                                <span class="tag tag-gray">Tableau</span>
-                                <span class="tag tag-gray">Docker</span>
-                                <span class="tag tag-gray">PID Control</span>
-                            </div>
+                    </div>
+                    <div class="skill-card">
+                        <h4 class="skill-card-label"><i class="fas fa-robot"></i> <span data-i18n="skillcard3.label">AI 工程</span></h4>
+                        <div class="skill-card-tags">
+                            <span class="tag tag-violet">Claude / Claude Code</span><span class="tag tag-violet">Cursor</span><span class="tag tag-violet">GitHub Copilot</span><span class="tag tag-violet">多 Agent 编排</span>
                         </div>
-                        <div class="skill-tag-group">
-                            <h4 class="skill-tag-label" data-i18n="tags.aiLabel">AI Tools</h4>
-                            <div class="skill-tags-ai">
-                                <span class="tag tag-violet">ChatGPT</span>
-                                <span class="tag tag-violet">Claude</span>
-                                <span class="tag tag-violet">Cursor</span>
-                                <span class="tag tag-violet">GitHub Copilot</span>
-                            </div>
+                    </div>
+                    <div class="skill-card">
+                        <h4 class="skill-card-label"><i class="fas fa-language"></i> <span data-i18n="skillcard4.label">语言能力</span></h4>
+                        <div class="skill-card-tags">
+                            <span class="tag tag-green" data-i18n="skillcard4.zh">中文（母语）</span>
+                            <span class="tag tag-green" data-i18n="skillcard4.en">英文（专业级，旅美 8 年）</span>
                         </div>
                     </div>
                 </div>
@@ -356,24 +378,39 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
+    <!-- ═══ OPEN TO ═══ -->
+    <section class="open-to">
         <div class="container">
-            <h2 class="footer-headline" data-i18n="footer.headline">Let's build the future.</h2>
-            <p class="footer-subtext" data-i18n="footer.subtext">If you're looking for an engineer who understands chemicals, data, and AI collaboration &mdash; let's talk.</p>
-            <div class="footer-contact">
-                <a href="mailto:goodzzh222@hotmail.com" class="footer-email">goodzzh222@hotmail.com</a>
-                <div class="footer-links">
-                    <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+            <div class="open-to-box">
+                <p class="open-to-label" data-i18n="opento.label">求职意向</p>
+                <p class="open-to-text" data-i18n="opento.text">数据工程师 · AI 工程师 · 制造业智能化相关职位（半导体 / 先进制造业优先）</p>
+                <div class="open-to-terminal">
+                    <span class="ps1">zz@matrix:~$</span> <span id="openToTyped"></span><span class="cursor-blink">█</span>
                 </div>
             </div>
-            <p class="footer-copyright" data-i18n="footer.copyright">2026 Zhihong Zhang &middot; Designed and verified by a human, accelerated by AI agents.</p>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <h2 class="footer-headline" data-i18n="footer.headline">Wake up, Neo… 一起构建未来。</h2>
+            <p class="footer-subtext" data-i18n="footer.subtext">如果您正在寻找一位懂工业系统、懂数据管道、更懂 AI 协作的工程师，欢迎联系。</p>
+            <div class="footer-contact">
+                <a href="mailto:goodzzh222@hotmail.com" class="footer-email">
+                    <i class="fas fa-envelope"></i> goodzzh222@hotmail.com
+                </a>
+                <a href="https://github.com/steinszzh" target="_blank" rel="noopener noreferrer" class="footer-ghost" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="footer-matrix-art" aria-hidden="true">
+                <span>101101</span> <span>·</span> <span>011001</span> <span>·</span> <span>110011</span>
+            </div>
+            <p class="footer-copyright" data-i18n="footer.copyright">2026 张志鸿 · 人类设计与验证，AI 智能体加速。</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="./main.js?v=20260622"></script>
+    <script src="./main.js?v=20260807"></script>
 </body>
 </html>
