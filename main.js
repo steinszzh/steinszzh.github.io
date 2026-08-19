@@ -498,7 +498,7 @@ function initPdfButton() {
     const btn = document.getElementById('pdfBtn');
     if (!btn) return;
     btn.addEventListener('click', () => {
-        const file = currentLang === 'zh' ? 'resume-zh.pdf' : 'resume-en.pdf';
+        const file = currentLang === 'zh' ? 'resume_zh.pdf' : 'resume_en.pdf';
         const a = document.createElement('a');
         a.href = file;
         a.download = file;
