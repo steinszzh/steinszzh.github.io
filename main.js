@@ -15,6 +15,7 @@ const i18n = {
         'nav.skills': '技能',
         'nav.contact': '联系',
         'nav.pdf': '下载简历',
+        'nav.lab': '实验室',
 
         'hero.name': '张志鸿',
         'hero.tagline': '工业数据与 AI 工程师',
@@ -43,6 +44,12 @@ const i18n = {
         'job1.bullet2': '作为技术负责人与高校联合研发隔膜压缩机预测性维护系统，融合 ML 模型与化工领域知识',
         'job1.bullet3': '引入 AI 智能体开发工作流（多 Agent 流水线 + AI 结对编程），将原型开发周期从 2 周压缩至 3 天',
         'job1.bullet4': '搭建数据可视化看板，为运营团队提供实时决策支持，设备故障率降低 35%',
+
+        // Job Freelance
+        'jobf.company': '自由数据分析师（独立接单）',
+        'jobf.role': '数据分析与金融建模',
+        'jobf.bullet1': '为多家初创客户提供数据分析服务：股票市场信号研究、回测框架搭建与金融时序分析',
+        'jobf.bullet2': '搭建自动化数据管道与可视化看板，交付可直接使用的投资组合风险评估与市场趋势报告',
         'job2.company': '耶希瓦大学',
         'job2.role': '数据科学项目研究员',
         'job2.bullet1': 'Capstone 项目：优化 CNN 语音识别模型，测试集准确率提升 10%',
@@ -100,7 +107,20 @@ const i18n = {
 
         'footer.headline': 'Wake up, Neo… 一起构建未来。',
         'footer.subtext': '如果您正在寻找一位懂工业系统、懂数据管道、更懂 AI 协作的工程师，欢迎联系。',
-        'footer.copyright': '2026 张志鸿 · 人类设计与验证，AI 智能体加速。'
+        'footer.copyright': '2026 张志鸿 · 人类设计与验证，AI 智能体加速。',
+
+        // Lab
+        'lab.title': '异常猎捕',
+        'lab.desc': '30 秒上岗体验：传感器数据流里混入了红色异常信号，在它们溜走前点击隔离。连击加分，失手清零。',
+        'lab.score': '得分',
+        'lab.time': '时间',
+        'lab.best': '最佳',
+        'lab.combo': '连击',
+        'lab.ready': '待命中',
+        'lab.start': '开始 30 秒',
+        'lab.over': '值班结束',
+        'lab.again': '再来一班',
+        'lab.nogl': 'WebGL 不可用，实验室暂停开放。'
     },
 
     en: {
@@ -110,6 +130,7 @@ const i18n = {
         'nav.skills': 'Skills',
         'nav.contact': 'Contact',
         'nav.pdf': 'Resume',
+        'nav.lab': 'Lab',
 
         'hero.name': 'ZHIHONG_ZHANG',
         'hero.tagline': 'Industrial Data & AI Engineer',
@@ -138,6 +159,12 @@ const i18n = {
         'job1.bullet2': 'Led university collaboration on diaphragm compressor predictive maintenance, fusing ML models with chemical domain knowledge',
         'job1.bullet3': 'Introduced agentic AI workflows (multi-agent pipelines, AI pair-programming), compressing prototyping from 2 weeks to 3 days',
         'job1.bullet4': 'Built real-time dashboards for operations teams, reducing equipment failure rates by 35%',
+
+        // Job Freelance
+        'jobf.company': 'Freelance Data Analyst (Independent)',
+        'jobf.role': 'Data Analysis & Financial Modeling',
+        'jobf.bullet1': 'Delivered data analysis services for startup clients: stock market signal research, backtesting frameworks, and financial time-series analysis',
+        'jobf.bullet2': 'Built automated data pipelines and dashboards; delivered portfolio risk assessment and market trend reports',
         'job2.company': 'Yeshiva University',
         'job2.role': 'Data Science Researcher',
         'job2.bullet1': 'Capstone: optimized CNN speaker recognition model, improving test accuracy by 10%',
@@ -195,7 +222,20 @@ const i18n = {
 
         'footer.headline': 'Wake up, Neo… Let\'s build the future.',
         'footer.subtext': 'If you\'re looking for an engineer who understands industrial systems, data pipelines, and AI collaboration — let\'s talk.',
-        'footer.copyright': '2026 Zhihong Zhang · Designed and verified by a human, accelerated by AI agents.'
+        'footer.copyright': '2026 Zhihong Zhang · Designed and verified by a human, accelerated by AI agents.',
+
+        // Lab
+        'lab.title': 'Anomaly Hunt',
+        'lab.desc': 'A 30-second shift: red anomalies have slipped into the sensor stream — quarantine them before they escape. Streaks multiply your score; misses reset it.',
+        'lab.score': 'SCORE',
+        'lab.time': 'TIME',
+        'lab.best': 'BEST',
+        'lab.combo': 'STREAK',
+        'lab.ready': 'ON SHIFT',
+        'lab.start': 'START 30s',
+        'lab.over': 'SHIFT OVER',
+        'lab.again': 'RUN IT BACK',
+        'lab.nogl': 'WebGL unavailable — the lab is closed.'
     }
 };
 
@@ -415,7 +455,7 @@ function initScrollReveal() {
         });
     }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
 
-    document.querySelectorAll('.phil-card, .job, .project-card, .skill-card, .sidebar-block, .section-title, .footer-headline, .footer-subtext, .footer-contact, .footer-copyright, .stat-panel').forEach((el, index) => {
+    document.querySelectorAll('.phil-card, .job, .project-card, .skill-card, .sidebar-block, .section-title, .footer-headline, .footer-subtext, .footer-contact, .footer-copyright, .stat-panel, .lab-desc, .lab-panel').forEach((el, index) => {
         el.classList.add('reveal');
         if (el.classList.contains('phil-card') || el.classList.contains('job') || el.classList.contains('project-card')) {
             el.classList.add(`reveal-delay-${Math.min((index % 5) + 1, 5)}`);

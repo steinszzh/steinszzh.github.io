@@ -55,6 +55,7 @@
                     <a href="#experience" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.experience">经历</span></a>
                     <a href="#projects" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.projects">项目</span></a>
                     <a href="#skills" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.skills">技能</span></a>
+                    <a href="#lab" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.lab">实验室</span></a>
                     <a href="#contact" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.contact">联系</span></a>
                 </div>
                 <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
@@ -191,6 +192,24 @@
                                 </ul>
                                 <div class="job-tags">
                                     <span class="tag">IoT</span><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Cloud</span><span class="tag">预测性维护</span>
+                                </div>
+                            </article>
+
+                            <article class="job">
+                                <div class="job-log">
+                                    <span class="log-time">[2021.02 — 2022.12]</span>
+                                    <span class="log-level">RUN</span>
+                                </div>
+                                <div class="job-header">
+                                    <h3 class="job-company" data-i18n="jobf.company">自由数据分析师（独立接单）</h3>
+                                    <h4 class="job-role" data-i18n="jobf.role">数据分析与金融建模</h4>
+                                </div>
+                                <ul class="job-bullets">
+                                    <li data-i18n="jobf.bullet1">为多家初创客户提供数据分析服务：股票市场信号研究、回测框架搭建与金融时序分析</li>
+                                    <li data-i18n="jobf.bullet2">搭建自动化数据管道与可视化看板，交付可直接使用的投资组合风险评估与市场趋势报告</li>
+                                </ul>
+                                <div class="job-tags">
+                                    <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Backtesting</span><span class="tag">Data Pipeline</span>
                                 </div>
                             </article>
 
@@ -376,6 +395,32 @@
                 </div>
             </div>
         </section>
+        <!-- ═══ LAB: ANOMALY HUNT ═══ -->
+        <section class="lab" id="lab">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-hash"># 05</span> <span class="section-label" data-i18n="lab.title">异常猎捕</span>
+                </h2>
+                <p class="lab-desc" data-i18n="lab.desc">30 秒上岗体验：传感器数据流里混入了红色异常信号，在它们溜走前点击隔离。连击加分，失手清零。</p>
+                <div class="lab-panel">
+                    <div class="lab-hud">
+                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.score">得分</span><span class="lab-hud-value" id="labScore">0</span></div>
+                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.time">时间</span><span class="lab-hud-value" id="labTime">30</span></div>
+                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.best">最佳</span><span class="lab-hud-value" id="labBest">0</span></div>
+                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.combo">连击</span><span class="lab-hud-value" id="labCombo">×1</span></div>
+                    </div>
+                    <div class="lab-canvas-wrap">
+                        <canvas id="labCanvas" aria-label="Anomaly Hunt game canvas"></canvas>
+                        <div class="lab-overlay" id="labOverlay">
+                            <p class="lab-overlay-title" id="labOverlayTitle" data-i18n="lab.ready">待命中</p>
+                            <p class="lab-overlay-score" id="labOverlayScore"></p>
+                            <button class="lab-btn" id="labStart" data-i18n="lab.start">开始 30 秒</button>
+                        </div>
+                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">WebGL 不可用，实验室暂停开放。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ═══ OPEN TO ═══ -->
@@ -411,6 +456,33 @@
         </div>
     </footer>
 
+    <!-- Three.js import map (game lazy-loads only when #lab nears viewport) -->
+    <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+    </script>
+    <script type="module">
+    (function () {
+        const el = document.getElementById('lab');
+        const nogl = document.getElementById('labNogl');
+        const fail = () => { if (nogl) nogl.hidden = false; };
+        if (!el) return;
+        let booted = false;
+        const boot = () => {
+            if (booted) return;
+            booted = true;
+            import('./game.js?v=20260928').then(m => m.initLab()).catch(fail);
+        };
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                if (entries.some(e => e.isIntersecting)) { io.disconnect(); boot(); }
+            }, { rootMargin: '400px' });
+            io.observe(el);
+        } else {
+            boot();
+        }
+        setTimeout(() => { if (!window.__labReady) boot(); }, 6000);
+    })();
+    </script>
     <script src="./main.js?v=20260807"></script>
 </body>
 </html>
