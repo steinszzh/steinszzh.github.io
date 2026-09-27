@@ -416,7 +416,7 @@
                             <p class="lab-overlay-score" id="labOverlayScore"></p>
                             <button class="lab-btn" id="labStart" data-i18n="lab.start">开始 30 秒</button>
                         </div>
-                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">WebGL 不可用，实验室暂停开放。</p>
+                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">浏览器不支持 Canvas，实验室无法启动。</p>
                     </div>
                 </div>
             </div>
@@ -470,7 +470,7 @@
         const boot = () => {
             if (booted) return;
             booted = true;
-            import('./game.js?v=20260928').then(m => m.initLab()).catch(fail);
+            import('./game.js?v=20260928b').then(m => m.initLab()).catch(fail);
         };
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver((entries) => {

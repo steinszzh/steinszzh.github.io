@@ -120,7 +120,7 @@ const i18n = {
         'lab.start': '开始 30 秒',
         'lab.over': '值班结束',
         'lab.again': '再来一班',
-        'lab.nogl': 'WebGL 不可用，实验室暂停开放。'
+        'lab.nogl': '浏览器不支持 Canvas，实验室无法启动。'
     },
 
     en: {
@@ -235,7 +235,7 @@ const i18n = {
         'lab.start': 'START 30s',
         'lab.over': 'SHIFT OVER',
         'lab.again': 'RUN IT BACK',
-        'lab.nogl': 'WebGL unavailable — the lab is closed.'
+        'lab.nogl': 'Canvas is unsupported — the lab cannot start.'
     }
 };
 
