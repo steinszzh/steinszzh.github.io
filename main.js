@@ -120,7 +120,7 @@ const i18n = {
         'lab.start': '开始 30 秒',
         'lab.over': '值班结束',
         'lab.again': '再来一班',
-        'lab.nogl': '浏览器不支持 Canvas，实验室无法启动。'
+        'lab.nogl': '实验室启动失败，请刷新页面重试。'
     },
 
     en: {
@@ -235,7 +235,7 @@ const i18n = {
         'lab.start': 'START 30s',
         'lab.over': 'SHIFT OVER',
         'lab.again': 'RUN IT BACK',
-        'lab.nogl': 'Canvas is unsupported — the lab cannot start.'
+        'lab.nogl': 'The lab failed to start — please refresh the page.'
     }
 };
 

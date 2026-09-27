@@ -416,7 +416,7 @@
                             <p class="lab-overlay-score" id="labOverlayScore"></p>
                             <button class="lab-btn" id="labStart" data-i18n="lab.start">开始 30 秒</button>
                         </div>
-                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">浏览器不支持 Canvas，实验室无法启动。</p>
+                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">实验室启动失败，请刷新页面重试。</p>
                     </div>
                 </div>
             </div>
@@ -456,31 +456,33 @@
         </div>
     </footer>
 
-    <!-- Three.js import map (game lazy-loads only when #lab nears viewport) -->
-    <script type="importmap">
-    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
-    </script>
-    <script type="module">
+    <!-- Anomaly Hunt game: classic script, zero dependencies, same-origin only -->
+    <script src="./game.js?v=20260928c"></script>
+    <script>
     (function () {
-        const el = document.getElementById('lab');
-        const nogl = document.getElementById('labNogl');
-        const fail = () => { if (nogl) nogl.hidden = false; };
-        if (!el) return;
-        let booted = false;
-        const boot = () => {
-            if (booted) return;
-            booted = true;
-            import('./game.js?v=20260928b').then(m => m.initLab()).catch(fail);
+        var fail = function (msg) {
+            var nogl = document.getElementById('labNogl');
+            if (nogl) {
+                nogl.hidden = false;
+                if (msg) nogl.textContent += ' [' + msg + ']';
+            }
         };
-        if ('IntersectionObserver' in window) {
-            const io = new IntersectionObserver((entries) => {
-                if (entries.some(e => e.isIntersecting)) { io.disconnect(); boot(); }
-            }, { rootMargin: '400px' });
-            io.observe(el);
+        var boot = function () {
+            try {
+                if (window.AnomalyHunt && window.AnomalyHunt.auto) {
+                    window.AnomalyHunt.auto();
+                } else {
+                    fail('script-not-loaded');
+                }
+            } catch (e) {
+                fail(e && e.message ? e.message : 'boot-error');
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
         } else {
             boot();
         }
-        setTimeout(() => { if (!window.__labReady) boot(); }, 6000);
     })();
     </script>
     <script src="./main.js?v=20260807"></script>
