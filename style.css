@@ -1203,7 +1203,8 @@ section { padding: 100px 0; }
 #sf-all:checked ~ .shelf-filters label[for="sf-all"],
 #sf-taleb:checked ~ .shelf-filters label[for="sf-taleb"],
 #sf-feynman:checked ~ .shelf-filters label[for="sf-feynman"],
-#sf-kk:checked ~ .shelf-filters label[for="sf-kk"] {
+#sf-kk:checked ~ .shelf-filters label[for="sf-kk"],
+#sf-sys:checked ~ .shelf-filters label[for="sf-sys"] {
     color: #000;
     background: var(--green);
     border-color: var(--green);
@@ -1212,7 +1213,8 @@ section { padding: 100px 0; }
 
 #sf-taleb:checked ~ .shelf-groups .shelf-group:not([data-author="taleb"]),
 #sf-feynman:checked ~ .shelf-groups .shelf-group:not([data-author="feynman"]),
-#sf-kk:checked ~ .shelf-groups .shelf-group:not([data-author="kk"]) {
+#sf-kk:checked ~ .shelf-groups .shelf-group:not([data-author="kk"]),
+#sf-sys:checked ~ .shelf-groups .shelf-group:not([data-author="sys"]) {
     display: none;
 }
 
