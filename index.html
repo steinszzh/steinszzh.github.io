@@ -55,7 +55,7 @@
                     <a href="#experience" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.experience">经历</span></a>
                     <a href="#projects" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.projects">项目</span></a>
                     <a href="#skills" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.skills">技能</span></a>
-                    <a href="#lab" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.lab">实验室</span></a>
+                    <a href="#bookshelf" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.shelf">书架</span></a>
                     <a href="#contact" class="nav-link"><span class="prompt">~/</span><span data-i18n="nav.contact">联系</span></a>
                 </div>
                 <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
@@ -395,30 +395,200 @@
                 </div>
             </div>
         </section>
-        <!-- ═══ LAB: ANOMALY HUNT ═══ -->
-        <section class="lab" id="lab">
+        <!-- ═══ BOOKSHELF: REAL READING, REAL HIGHLIGHTS ═══ -->
+        <!-- Pure HTML <details> interaction — zero JS, cannot fail to load -->
+        <section class="shelf" id="bookshelf">
             <div class="container">
                 <h2 class="section-title">
-                    <span class="section-hash"># 05</span> <span class="section-label" data-i18n="lab.title">异常猎捕</span>
+                    <span class="section-hash"># 05</span> <span class="section-label" data-i18n="shelf.title">书架</span>
                 </h2>
-                <p class="lab-desc" data-i18n="lab.desc">30 秒上岗体验：传感器数据流里混入了红色异常信号，在它们溜走前点击隔离。连击加分，失手清零。</p>
-                <div class="lab-panel">
-                    <div class="lab-hud">
-                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.score">得分</span><span class="lab-hud-value" id="labScore">0</span></div>
-                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.time">时间</span><span class="lab-hud-value" id="labTime">30</span></div>
-                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.best">最佳</span><span class="lab-hud-value" id="labBest">0</span></div>
-                        <div class="lab-hud-item"><span class="lab-hud-label" data-i18n="lab.combo">连击</span><span class="lab-hud-value" id="labCombo">×1</span></div>
+                <p class="shelf-desc" data-i18n="shelf.desc">书架是比简历更诚实的自我介绍。以下全部来自我的微信读书：真实在读、真实划线。点开任意一本，看它们怎么塑造我的工作方式。</p>
+
+                <div class="shelf-stats">
+                    <div class="shelf-stat"><span class="shelf-stat-num">1455</span><span class="shelf-stat-label" data-i18n="shelf.stat_shelf">在架</span></div>
+                    <div class="shelf-stat"><span class="shelf-stat-num">686</span><span class="shelf-stat-label" data-i18n="shelf.stat_read">读过</span></div>
+                    <div class="shelf-stat"><span class="shelf-stat-num">471</span><span class="shelf-stat-label" data-i18n="shelf.stat_finish">读完</span></div>
+                    <div class="shelf-stat"><span class="shelf-stat-num">338</span><span class="shelf-stat-label" data-i18n="shelf.stat_notes">笔记</span></div>
+                </div>
+
+                <!-- CSS-only author filter (radio hack, no JS) -->
+                <input type="radio" name="shelf-filter" id="sf-all" class="shelf-radio" checked>
+                <input type="radio" name="shelf-filter" id="sf-taleb" class="shelf-radio">
+                <input type="radio" name="shelf-filter" id="sf-feynman" class="shelf-radio">
+                <input type="radio" name="shelf-filter" id="sf-kk" class="shelf-radio">
+                <div class="shelf-filters">
+                    <label for="sf-all" class="shelf-filter" data-i18n="shelf.f_all">全部</label>
+                    <label for="sf-taleb" class="shelf-filter" data-i18n="shelf.f_taleb">塔勒布</label>
+                    <label for="sf-feynman" class="shelf-filter" data-i18n="shelf.f_feynman">费曼</label>
+                    <label for="sf-kk" class="shelf-filter" data-i18n="shelf.f_kk">凯文·凯利</label>
+                </div>
+
+                <div class="shelf-groups">
+                    <!-- ── 塔勒布 ── -->
+                    <div class="shelf-group" data-author="taleb">
+                        <h3 class="shelf-group-title">纳西姆·塔勒布 <span class="shelf-group-sub" data-i18n="shelf.g_taleb">不确定性五部曲 · 全部读完</span></h3>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">01</span>
+                                <span class="book-title" data-i18n="book1.title">反脆弱</span>
+                                <span class="book-author">Nassim N. Taleb</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.myhighlight">我的划线</p>
+                                <blockquote class="book-quote">「我的诀窍是，你可以厌倦读一本特定的书，但不要厌倦阅读的行为。这样，你所阅读并消化的知识才能快速增长，随后你就会毫不费力地发现，书中自有黄金屋……」</blockquote>
+                                <p class="book-label" data-i18n="shelf.mynote">我的想法</p>
+                                <p class="book-note" data-i18n="book1.note">积极拖延。</p>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book1.why">越压越强的系统观是我的工作方法论：引入 AI 工作流时不搞大爆炸迁移——每周小改动、失败就回滚，一年下来系统自己长出了能力。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">02</span>
+                                <span class="book-title" data-i18n="book2.title">黑天鹅</span>
+                                <span class="book-author">Nassim N. Taleb</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.famousquote">书中金句</p>
+                                <blockquote class="book-quote" data-i18n="book2.quote">「历史不会爬行，只会跳跃。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book2.why">承认预测不了，才建得出预警。加氢站 IoT 系统的哲学：不赌哪次异常是真事故，只保证响应时间压缩 80%。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">03</span>
+                                <span class="book-title" data-i18n="book3.title">随机漫步的傻瓜</span>
+                                <span class="book-author">Nassim N. Taleb</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.famousquote">书中金句</p>
+                                <blockquote class="book-quote" data-i18n="book3.quote">「如果失败的代价过于沉重，那么这件事成功的概率有多高，根本无关紧要。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book3.why">自由职业做量化回测的第一课：先问输家去哪了。幸存者偏差从此刻进脑子——看设备故障数据时，我先看哪些异常根本没被记录。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">04</span>
+                                <span class="book-title" data-i18n="book4.title">非对称风险</span>
+                                <span class="book-author">Nassim N. Taleb</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.myhighlight">我的划线</p>
+                                <blockquote class="book-quote">「小偷不会光顾穷人，毒酒总是放在金杯而不是普通杯子里——因为放在金杯里更容易让人喝下去。把事情搞复杂，就能轻易地骗到富人的钱。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book4.why">没有切身利害的人不参与决策。驻场交付三年，我签字的每个技术方案都自己兜底——Skin in the Game 是职业底线。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">05</span>
+                                <span class="book-title" data-i18n="book5.title">智慧与魔咒</span>
+                                <span class="book-author">Nassim N. Taleb</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.myhighlight">我的划线</p>
+                                <blockquote class="book-quote">「很少有人会意识到，我们宁可用药物改变孩子的大脑，好让他们跟上学校课程，也不愿调整课程安排来配合孩子的天性。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book5.why">系统该适应人，而不是人适应系统。做数据看板同理：运营团队用不顺手，先改看板，绝不怪用户"不会看数据"。</p>
+                            </div>
+                        </details>
                     </div>
-                    <div class="lab-canvas-wrap">
-                        <canvas id="labCanvas" aria-label="Anomaly Hunt game canvas"></canvas>
-                        <div class="lab-overlay" id="labOverlay">
-                            <p class="lab-overlay-title" id="labOverlayTitle" data-i18n="lab.ready">待命中</p>
-                            <p class="lab-overlay-score" id="labOverlayScore"></p>
-                            <button class="lab-btn" id="labStart" data-i18n="lab.start">开始 30 秒</button>
-                        </div>
-                        <p class="lab-nogl" id="labNogl" hidden data-i18n="lab.nogl">实验室启动失败，请刷新页面重试。</p>
+
+                    <!-- ── 费曼 ── -->
+                    <div class="shelf-group" data-author="feynman">
+                        <h3 class="shelf-group-title">理查德·费曼 <span class="shelf-group-sub" data-i18n="shelf.g_feynman">好奇者的科学精神</span></h3>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">06</span>
+                                <span class="book-title" data-i18n="book6.title">费曼讲演录</span>
+                                <span class="book-author">Richard P. Feynman</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.famousquote">书中金句</p>
+                                <blockquote class="book-quote" data-i18n="book6.quote">「第一原则是：你不能欺骗自己——而你恰恰是最容易被自己欺骗的人。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book6.why">这本书的英文原版就叫 The Pleasure of Finding Things Out（《发现的乐趣》）。它是我的工程诚实教材：AI 生成的代码，能验证的才合并。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">07</span>
+                                <span class="book-title" data-i18n="book7.title">费曼讲物理：入门</span>
+                                <span class="book-author">Richard P. Feynman</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book7.why">化工加物理背景给我的最大资产：模型输出再漂亮，也要过一遍物理常识——费曼管这个叫"知道"和"理解"的区别。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- ── 凯文·凯利 ── -->
+                    <div class="shelf-group" data-author="kk">
+                        <h3 class="shelf-group-title">凯文·凯利 <span class="shelf-group-sub" data-i18n="shelf.g_kk">技术预言三十年</span></h3>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">08</span>
+                                <span class="book-title" data-i18n="book8.title">失控</span>
+                                <span class="book-author">Kevin Kelly</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.famousquote">书中金句</p>
+                                <blockquote class="book-quote" data-i18n="book8.quote">「机器正在生物化，而生物正在工程化。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book8.why">1994 年写透了我 2026 年的日常：分布式智能、自组织、蜂群思维。我的多 Agent 编排工作流，哲学全在这本书里。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">09</span>
+                                <span class="book-title" data-i18n="book9.title">必然</span>
+                                <span class="book-author">Kevin Kelly</span>
+                                <span class="book-badge" data-i18n="shelf.finished">读完</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.famousquote">书中金句</p>
+                                <blockquote class="book-quote" data-i18n="book9.quote">「当复制品免费时，你就得出售无法复制的东西。」</blockquote>
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book9.why">科技有自己的方向，人只能顺势而为。这是我 2026 年全力押注 AI 工程化的底气之一。</p>
+                            </div>
+                        </details>
+
+                        <details class="book">
+                            <summary>
+                                <span class="book-idx">10</span>
+                                <span class="book-title" data-i18n="book10.title">科技想要什么</span>
+                                <span class="book-author">Kevin Kelly</span>
+                                <span class="book-badge book-badge-reading" data-i18n="shelf.reading">在读</span>
+                            </summary>
+                            <div class="book-body">
+                                <p class="book-label" data-i18n="shelf.whymatters">为什么它塑造了我</p>
+                                <p class="book-why" data-i18n="book10.why">在读中。KK 问"科技想要什么"——我也在用同样的问题审视自己的工作流：它想长成什么样，而不是我想让它长成什么样。</p>
+                            </div>
+                        </details>
                     </div>
                 </div>
+
+                <p class="shelf-src" data-i18n="shelf.src">数据来源：我的微信读书 · 划线与想法均为真实记录</p>
             </div>
         </section>
     </main>
@@ -456,35 +626,6 @@
         </div>
     </footer>
 
-    <!-- Anomaly Hunt game: classic script, zero dependencies, same-origin only -->
-    <script src="./game.js?v=20260928c"></script>
-    <script>
-    (function () {
-        var fail = function (msg) {
-            var nogl = document.getElementById('labNogl');
-            if (nogl) {
-                nogl.hidden = false;
-                if (msg) nogl.textContent += ' [' + msg + ']';
-            }
-        };
-        var boot = function () {
-            try {
-                if (window.AnomalyHunt && window.AnomalyHunt.auto) {
-                    window.AnomalyHunt.auto();
-                } else {
-                    fail('script-not-loaded');
-                }
-            } catch (e) {
-                fail(e && e.message ? e.message : 'boot-error');
-            }
-        };
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', boot);
-        } else {
-            boot();
-        }
-    })();
-    </script>
-    <script src="./main.js?v=20260807"></script>
+    <script src="./main.js?v=20260928d"></script>
 </body>
 </html>
