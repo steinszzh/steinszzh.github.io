@@ -171,8 +171,9 @@ const i18n = {
         'book14.title': '黑客与画家',
         'book14.quote': '「黑客与画家的共同之处是，他们都是创作者。」',
         'book14.why': '程序员是创作者，不是码农。我写代码的方式更像画画：快速起稿、反复修改、保留手感——工具链和作品都在 GitHub 上。',
-        'book15.title': '芯片战争',
-        'book15.why': '半导体七十年的产业史。面试存储与半导体公司之前先读完——面试官聊起行业格局的来龙去脉，我得接得上话。',
+        'book15.title': '信号与噪声',
+        'book15.quote': '「信号是真相，噪声是让我们远离真相的东西。」',
+        'book15.why': '数据时代的预测科学：分清信号和噪声。加氢站预警系统的核心难题——传感器流里九成是噪声：把噪声当信号会累死运维，把信号当噪声会漏掉事故。',
     },
 
     en: {
@@ -338,8 +339,9 @@ const i18n = {
         'book14.title': 'Hackers & Painters',
         'book14.quote': '"What hackers and painters have in common is that they\'re both makers."',
         'book14.why': 'Programmers are creators, not code laborers. I write code like painting: fast sketches, constant revision, keeping the hand feel — toolchain and work all on GitHub.',
-        'book15.title': 'Chip War (CN ed.)',
-        'book15.why': 'Seventy years of semiconductor industry history. I finished it before interviewing at memory and semiconductor companies — when interviewers trace the industry landscape, I can keep up.'
+        'book15.title': 'The Signal and the Noise',
+        'book15.quote': '"The signal is the truth. The noise is what distracts us from the truth."',
+        'book15.why': 'The science of prediction in the age of data: telling signal from noise. The core problem of the H2-station warning system — ninety percent of the sensor stream is noise: treat noise as signal and you exhaust the ops team; treat signal as noise and you miss the accident.'
     }
 };
 
